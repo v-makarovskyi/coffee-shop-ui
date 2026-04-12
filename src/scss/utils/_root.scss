@@ -1,0 +1,16 @@
+@use "sass:meta";
+@use './typography' as *;
+@use "./colors" as *;
+
+:root {
+    --font-main: #{$font-main};
+    --font-accent: #{$font-accent};
+
+    @each $name, $shades in $colors {
+        @each $shade, $value in $shades {
+            --color-#{$name}-#{$shade}: #{$value}
+        }
+    }
+
+    --border-main: 1px solid var(--color-text-black-accent);
+}
