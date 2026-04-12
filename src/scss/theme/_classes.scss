@@ -13,6 +13,11 @@
   @include font-style(30, 120, 1980, 400, 110%);
 }
 
+.not-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .visually-hidden {
     clip: rect(0 0 0 0) !important;
     clip-path: inset(50%) !important;
