@@ -1,0 +1,15 @@
+@use "sass:math";
+
+@function fluid-font($min-size, $max-size, $containerWith) {
+  @return clamp(
+    #{$min-size}px,
+    #{math.div($max-size, $containerWith) * 100}vw,
+    #{$max-size}px
+  );
+}
+
+@mixin font-style($min, $max, $containerWith, $weight: 400, $lh: 175%) {
+  font-size: fluid-font($min, $max, $containerWith);
+  font-weight: $weight;
+  line-height: $lh;
+}

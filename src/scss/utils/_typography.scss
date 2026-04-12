@@ -1,0 +1,31 @@
+@use "sass:map";
+
+$font-families: (
+  "Space Mono": (
+    family: "Space Mono",
+    weight: 400,
+    style: normal,
+    display: swap,
+    path: "../../fonts/SpaceMono-Regular.woff2",
+  ),
+  "Anton": (
+    family: "Anton",
+    weight: 400,
+    style: normal,
+    display: swap,
+    path: "../../fonts/Anton-Regular.woff2",
+  ),
+);
+
+@each $name, $data in $font-families {
+    @font-face {
+        font-family: map.get($data, family);
+        src: url(#{map.get($data, path)}) format("woff2");
+        font-style: map.get($data, style);
+        font-weight: map.get($data, weight);
+        font-display: map.get($data, display);
+    }
+}
+
+$font-main: "Anton", sans-serif;
+$font-accent: "Space Mono", monospace;

@@ -1,0 +1,182 @@
+@use "../utils/mixins" as *;
+@use "../utils/breakpoints" as *;
+
+.slider {
+  &__item {
+    background-color: var(--color-text-white);
+  }
+
+  &__body {
+    display: flex;
+    & > * {
+      flex: 1 1 0%;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    background: var(--color-text-white) url("../../images/slider/slider-bg.png")
+      center/100% no-repeat;
+  }
+
+  &__title {
+    $sliderItemTitlePaddingLeft: 7.4vw;
+    position: relative;
+    padding-left: $sliderItemTitlePaddingLeft;
+    max-width: calc($sliderItemTitlePaddingLeft + 125px);
+    line-height: 108%;
+    font-size: 40px;
+    z-index: 1;
+
+    @include bp-up(sm) {
+      max-width: calc($sliderItemTitlePaddingLeft + 160px);
+      font-size: 55px;
+    }
+
+    @include bp-up(md) {
+      max-width: calc($sliderItemTitlePaddingLeft + 190px);
+      font-size: 65px;
+    }
+
+    @include bp-up(lg) {
+      max-width: calc($sliderItemTitlePaddingLeft + 216px);
+      font-size: 75px;
+    }
+
+    @include bp-up(lg) {
+      max-width: calc($sliderItemTitlePaddingLeft + 245px);
+      font-size: 85px;
+    }
+
+    @include bp-up(xl) {
+      max-width: calc($sliderItemTitlePaddingLeft + 275px);
+      font-size: 95px;
+    }
+
+    @include bp-up(xl) {
+      max-width: calc($sliderItemTitlePaddingLeft + 318px);
+      font-size: 110px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -32px;
+      right: 14px;
+      width: 45px;
+      aspect-ratio: 1;
+      background: border-box var(--color-text-white)
+        url("../../images/slider/slider-label.svg") center/cover no-repeat;
+      z-index: -1;
+
+      @include bp-up(sm) {
+        top: -32px;
+        right: 1px;
+        width: 50px;
+      }
+
+      @include bp-up(md) {
+        top: -41px;
+        right: 6px;
+        width: 60px;
+      }
+
+      @include bp-up(lg) {
+        top: -40px;
+        right: -1px;
+        width: 70px;
+      }
+
+      @include bp-up(xl) {
+        top: -72px;
+        right: -11px;
+        width: 110px;
+      }
+
+      @include bp-up(xxl) {
+        top: -96px;
+        right: -22px;
+        width: 135px;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 100px;
+      height: 60px;
+      background: border-box var(--color-text-white)
+        url("../../images/slider/slider-with-you.png") center/cover no-repeat;
+      z-index: -1;
+
+      @include bp-up(md) {
+        bottom: -44px;
+        right: -50px;
+        width: 115px;
+        height: 70px;
+      }
+
+      @include bp-up(lg) {
+        bottom: -60px;
+        right: -77px;
+        width: 160px;
+        height: 98px;
+      }
+
+      @include bp-up(xxl) {
+        right: -64px;
+      }
+    }
+  }
+
+  &__extra {
+    padding-block: 11px;
+    font-family: var(--font-accent);
+    font-size: 12px;
+    line-height: 240%;
+    text-align: center;
+
+    @include bp-up(md) {
+      font-size: 14px;
+    }
+
+    @include bp-up(lg) {
+      font-size: 16px;
+    }
+
+    & > * {
+      display: inline-block;
+    }
+
+    & > *:not(:last-child) {
+      position: relative;
+      padding-right: 10px;
+    }
+
+    & > *:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 9px;
+      right: 0%;
+      display: inline-block;
+      width: 1px;
+      height: 12px;
+      background-color: var(--color-text-black);
+
+      @include bp-up(md) {
+        top: 10px;
+        height: 14px;
+      }
+
+      @include bp-up(lg) {
+        top: 11.25px;
+        height: 16px;
+      }
+    }
+  }
+}

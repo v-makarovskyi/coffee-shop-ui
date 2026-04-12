@@ -1,0 +1,154 @@
+@use "sass:selector";
+@use "../utils/breakpoints" as *;
+@use "../utils/mixins" as *;
+
+.header {
+  font-family: var(--font-accent);
+  border-bottom: var(--border-main);
+
+  &__top {
+    padding-block: 10px;
+    padding-inline: 7px;
+    background-color: var(--color-text-black-accent);
+  }
+
+  &__description {
+    max-width: 885px;
+    margin-inline: auto;
+    font-size: clamp(12px, 0.73vw, 14px);
+    line-height: 128%;
+    color: var(--color-text-white);
+    text-align: center;
+
+    @include bp-up(sm) {
+    }
+  }
+
+  &__bottom {
+    background-color: var(--color-text-white);
+
+    &-inner {
+      height: 70px;
+      /*  padding-inline: 40px; */
+      padding-left: 15px;
+      padding-right: 30px;
+      line-height: 140%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include bp-up(md) {
+        height: 100px;
+        flex-wrap: wrap;
+      }
+
+      @include bp-up(lg) {
+        flex-wrap: nowrap;
+      }
+    }
+  }
+
+  &__logo {
+    padding-top: 7px;
+    width: 40%;
+    @include bp-up(sm) {
+      width: auto;
+    }
+  }
+
+  &__nav {
+    display: none;
+    @include bp-up(md) {
+      width: 100%;
+      display: block;
+      order: 1;
+    }
+    @include bp-up(lg) {
+      width: auto;
+      order: 0;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    column-gap: 47px;
+
+    @include bp-up(md) {
+      justify-content: center;
+    }
+
+    &-link {
+      position: relative;
+      padding-block: 10px;
+      display: block;
+      font-size: clamp(14px, 0.88vw, 17px);
+
+      @include bp-up(lg) {
+        padding-block: 38px;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    column-gap: 20px;
+    @include bp-up(lg) {
+      display: contents;
+    }
+    &-list {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      column-gap: 17px;
+
+      @include bp-up(lg) {
+        padding-right: 37px;
+        margin-right: 58px;
+        border-right: var(--border-main);
+      }
+
+      &::after {
+        content: "";
+        display: none;
+        position: absolute;
+        top: 0%;
+        right: -50%;
+        width: 77px;
+        height: 99px;
+        background: border-box url("../../images/icons/star-header.svg")
+          center/70% no-repeat;
+
+          @include bp-up(lg) {
+            display: block;
+          }
+      }
+    }
+
+    &-link {
+      position: relative;
+      padding-block: 10px;
+      display: block;
+      font-size: clamp(14px, 0.88vw, 17px);
+
+      @include bp-up(lg) {
+        padding-block: 38px;
+      }
+    }
+  }
+
+  #{selector.nest(&, "&__menu-link::after, &__actions-link::after")} {
+    content: "";
+    position: absolute;
+    bottom: 21%;
+    left: 0;
+    width: 54px;
+    height: 5px;
+    background: border-box url("../../images/icons/underline.svg") no-repeat;
+
+    @include bp-up(lg) {
+      bottom: 38%;
+    }
+  }
+}
