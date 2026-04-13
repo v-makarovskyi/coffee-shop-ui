@@ -35,7 +35,7 @@
     }
 
     @include bp-up(md) {
-      max-width: calc($sliderItemTitlePaddingLeft + 190px);
+      max-width: calc($sliderItemTitlePaddingLeft + 200px);
       font-size: 65px;
     }
 
