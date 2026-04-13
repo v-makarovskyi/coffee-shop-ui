@@ -24,7 +24,7 @@
     $sliderItemTitlePaddingLeft: 7.4vw;
     position: relative;
     padding-left: $sliderItemTitlePaddingLeft;
-    max-width: calc($sliderItemTitlePaddingLeft + 125px);
+    max-width: calc($sliderItemTitlePaddingLeft + 116px);
     line-height: 108%;
     font-size: 40px;
     z-index: 1;
@@ -64,7 +64,7 @@
       display: block;
       position: absolute;
       top: -32px;
-      right: 14px;
+      right: -3px;
       width: 45px;
       aspect-ratio: 1;
       background: border-box var(--color-text-white)
@@ -107,7 +107,7 @@
       display: block;
       position: absolute;
       bottom: -40px;
-      right: -40px;
+      right: -47px;
       width: 100px;
       height: 60px;
       background: border-box var(--color-text-white)
