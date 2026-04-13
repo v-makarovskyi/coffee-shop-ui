@@ -20,6 +20,7 @@ const devServer = browserSyncLib.create("coffee-shop-ui");
 const sass = gulpSass(dartSass);
 
 const isProd = process.env.NODE_ENV === "production";
+const PORT = 9000;
 
 const paths = {
   scripts: {},
@@ -55,13 +56,13 @@ export function serve() {
       server: {
         baseDir: "dist/",
       },
-      logLevel: "silent",
-      logPrefix: "cofee-shop-ui".toLowerCase(),
+      logLevel: "warn",
+      logPrefix: chalk.blue.bold("coffee-shop-ui".toUpperCase()),
       browser: ["google chrome", "firefox"],
       reloadDelay: 2000,
     },
     () => {
-      console.log(chalk.blue.bold(`Сервер успешно запущен на порту 9000`));
+      console.log(chalk.blue.bold(`Сервер успешно запущен на порту ${PORT}`));
     }
   );
   watch(paths.html.src, html);
