@@ -66,3 +66,6 @@ img, video {
     height: auto;
 }
 
+:where(address):where([class]) {
+  font-style: normal;
+}
