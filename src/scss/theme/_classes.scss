@@ -1,30 +1,47 @@
+@use "sass:selector";
 @use "../utils/mixins" as *;
 
 .container {
   $container-width: 1980px;
   $container-padding-x: 15px;
   margin-inline: auto;
-  padding-inline: #{$container-padding-x};
-  max-width: #{calc($container-width - $container-padding-x * 2)};
+  /* padding-inline: #{$container-padding-x}; */
+  max-width: #{calc($container-width - $container-padding-x * 4)};
 }
 
-.extra-big-title {
+.title {
   font-family: var(--font-main);
-  @include font-style(30, 120, 1980, 400, 110%);
+  text-transform: uppercase;
+
+  @at-root #{selector.append(&,"-extra-big")} {
+    @include font-style(38, 100, 1920, 400, 110%);
+    letter-spacing: -2px;
+    color: var(--color-text-white);
+  }
+  @at-root #{selector.append(&,"-big")} {
+    @include font-style(24, 70, 1920, 400, 114%);
+    letter-spacing: -1.4px;
+  }
+
+  @at-root #{selector.append(&, "-medium")} {
+    @include font-style(18, 50, 1920, 400, 120%);
+    letter-spacing: 1px;
+  }
+
+  @at-root #{selector.append(&,
+  "-small")} {
+    @include font-style(16, 35, 1920, 400, 129%);
+    letter-spacing: 0.7px;
+  }
 }
 
-.not-padding {
-  padding-left: 0;
-  padding-right: 0;
-}
 
 .visually-hidden {
-    clip: rect(0 0 0 0) !important;
-    clip-path: inset(50%) !important;
-    height: 1px !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    width: 1px !important;
-  }
-  
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}

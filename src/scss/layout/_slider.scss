@@ -1,3 +1,4 @@
+@use "sass:selector";
 @use "../utils/mixins" as *;
 @use "../utils/breakpoints" as *;
 
@@ -10,6 +11,40 @@
     display: flex;
     & > * {
       flex: 1 1 0%;
+    }
+
+    @include bp-up(md) {
+      position: relative;
+    }
+  }
+
+  &__btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    width: 70px;
+    height: 50px;
+    padding: 10px 16px;
+    background: content-box var(--color-bg-gold) 0% 0% / cover no-repeat padding-box;
+
+    &--left {
+      left: 0;
+      background-image: url("../../images/slider/slider-arrow-left.svg");
+    }
+
+    &--right {
+      right: 0;
+      background-image: url("../../images/slider/slider-arrow-right.svg");
+    }
+
+    @include bp-up(md) {
+      display: inline-block;
+    }
+
+    @include bp-up(lg) {
+      width: 84px;
+      height: 65px;
     }
   }
 
