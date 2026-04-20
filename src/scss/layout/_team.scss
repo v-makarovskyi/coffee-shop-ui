@@ -1,0 +1,81 @@
+@use "sass:selector";
+@use "../utils/mixins" as *;
+@use "../utils/breakpoints" as *;
+
+.team {
+  border-top: var(--border-main);
+  border-bottom: var(--border-main);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto repeat(3, 340px);
+
+  @include bp-up(md) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto repeat(2, 380px);
+  }
+
+  @include bp-up(lg) {
+    grid-template-columns: repeat((6, 1fr));
+    grid-template-rows: auro 315px;
+  }
+
+  &__title {
+    padding: 35px 0 31px 50px;
+    padding: 20px 0 20px 20px;
+    grid-column: 1 / -1;
+    border-bottom: var(--border-main);
+
+    @include bp-up(sm) {
+      padding: 25px 0 25px 30px;
+    }
+
+    @include bp-up(lg) {
+        padding-left: 50px;
+    }
+  }
+
+  &__card {
+    &:nth-child(2n) {
+      border-right: var(--border-main);
+    }
+
+    @include bp-up(md) {
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(5),
+      &:nth-child(6) {
+        border-right: var(--border-main);
+      }
+
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        border-bottom: var(--border-main);
+      }
+    }
+
+    @include bp-up(lg) {
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6),
+        &:nth-child(7) {
+          border-bottom: var(--border-main);
+        }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    margin-bottom: 10px;
+
+    @include bp-up(sm) {
+      object-fit: contain;
+    }
+
+    @include bp-up(md) {
+        object-fit: cover;
+    }
+  }
+}

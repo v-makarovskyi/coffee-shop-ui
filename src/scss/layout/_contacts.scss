@@ -322,6 +322,26 @@
     padding-bottom: 34px;
     background: border-box var(--color-bg-grey)
       url("../../images/slider/slider-bg.png") center/cover no-repeat;
+
+    @include bp-up(sm) {
+      padding-top: 50px;
+      padding-bottom: 55px;
+    }
+
+    @include bp-up(md) {
+      padding-top: 64px;
+      padding-bottom: 70px;
+    }
+
+    @include bp-up(lg) {
+      padding-top: 80px;
+      padding-bottom: 88px;
+    }
+
+    @include bp-up(xl) {
+      padding-top: 144px;
+      padding-bottom: 134px;
+    }
   }
 
   &__form {
@@ -332,6 +352,7 @@
     }
 
     &-body {
+      padding: 22px 34px;
       font-size: 14px;
       line-height: 150%;
       display: flex;
@@ -349,6 +370,10 @@
         font-size: 16px;
       }
 
+      @include bp-up(md) {
+        font-size: 18px;
+      }
+
       & > * {
         width: 100%;
         @include bp-up(md) {
@@ -364,6 +389,21 @@
         & > .contacts__form-table {
           font-family: var(--font-accent);
           font-size: 10px;
+        }
+      }
+
+      @at-root #{selector.nest(&, ".contacts__form-item:nth-child(3)")} {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 12px;
+          right: 3px;
+          width: 18px;
+          height: 11px;
+          background: border-box var(--color-bg-grey)
+            url("../../images/icons/yes.svg") center / cover no-repeat;
         }
       }
     }

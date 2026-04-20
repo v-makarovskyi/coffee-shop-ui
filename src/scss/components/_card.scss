@@ -3,12 +3,19 @@
 @use "../utils/breakpoints" as *;
 
 .card {
+
+  $self: &;
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  &__info {
+    @include bp-up(md) {
+      align-self: start;
+    }
+  }
+
   &__title {
-    margin-bottom: 5px;
     @include font-style(16, 25, 1920, 400, 148%);
     letter-spacing: 0.5px;
   }
@@ -16,18 +23,25 @@
   &__description {
     font-family: var(--font-accent);
     @include font-style(14, 18, 1920, 400, 148%);
+    display: block;
   }
 
   &--product {
     padding: 16px 16px 30px;
     row-gap: 14px;
 
-    @include bp-up(xl) {
-        row-gap: 31px;
+    #{$self} {
+      &__title {
+        margin-bottom: 20px;
+      }
     }
 
     @include bp-up(xl) {
-        padding: 42px 43px 36px; 
+      row-gap: 31px;
+    }
+
+    @include bp-up(xl) {
+      padding: 42px 43px 36px;
     }
 
     @at-root #{selector.nest(&, img)} {
@@ -50,12 +64,14 @@
       }
     }
 
-    @at-root #{selector.nest(&, ".card__info")} {
-        @include bp-up(md) {
-            align-self: start;
-        }
-    }
   }
   &--team {
+   /*  padding: 38px 38px 40px; */
+    padding: 16px 16px 30px;
+
+    @include bp-up(md) {
+      padding: 20px 16px 20px;
+    }
+  
   }
 }
