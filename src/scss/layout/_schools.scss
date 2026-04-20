@@ -1,0 +1,92 @@
+@use "../utils/breakpoints" as *;
+
+.schools {
+  padding: 16px 14px 18px;
+  background-color: var(--color-bg-oliva);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 30px;
+
+  @include bp-up(sm) {
+    padding: 18px 16px 30px;
+  }
+
+  @include bp-up(md) {
+    padding: 28px 30px 40px;
+    flex-direction: row;
+    column-gap: 50px;
+    align-items: stretch;
+  }
+
+  @include bp-up(lg) {
+    padding: 58px 36px 80px;
+  }
+
+  @include bp-up(xl) {
+    padding: 100px 100px 80px;
+    column-gap: 90px;
+  }
+
+  @include bp-up(xxl) {
+    column-gap: 134px;
+  }
+
+  &__img-container {
+    order: 1;
+
+    @include bp-up(md) {
+      order: 0;
+
+      & > img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include bp-up(md) {
+      align-items: start;
+    }
+    @include bp-up(lg) {
+        align-self: center;
+    }
+
+  }
+
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    margin-bottom: 20px;
+    font-family: var(--font-accent);
+    font-size: 14px;
+    line-height: 145%;
+    & > p {
+      text-align: center;
+    }
+
+    @include bp-up(sm) {
+      font-size: 16px;
+    }
+
+    @include bp-up(md) {
+      max-width: 408px;
+      font-size: 18px;
+
+      & > p {
+        text-align: left;
+      }
+    }
+  }
+
+  &__btn {
+    padding: 7px 16px;
+    font-size: 14px;
+  }
+}
