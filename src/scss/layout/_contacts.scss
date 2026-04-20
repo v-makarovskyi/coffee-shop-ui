@@ -255,6 +255,7 @@
     &-info {
       display: flex;
       flex-direction: column;
+      border-bottom: var(--border-main);
 
       &-item {
         padding: 10px 50px 10px 30px;
@@ -310,6 +311,74 @@
 
         @include bp-up(sm) {
           font-size: 16px;
+        }
+      }
+    }
+  }
+
+  &__reserve {
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 34px;
+    background: border-box var(--color-bg-grey)
+      url("../../images/slider/slider-bg.png") center/cover no-repeat;
+  }
+
+  &__form {
+    padding-inline: 20px;
+    &-title {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    &-body {
+      font-size: 14px;
+      line-height: 150%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 20px;
+
+      @include bp-up(lg) {
+        flex-direction: row;
+        align-items: first baseline;
+        column-gap: 35px;
+      }
+
+      @include bp-up(sm) {
+        font-size: 16px;
+      }
+
+      & > * {
+        width: 100%;
+        @include bp-up(md) {
+          width: 70%;
+        }
+      }
+
+      @at-root #{selector.nest(&, ".contacts__form-item:first-child")} {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+
+        & > .contacts__form-table {
+          font-family: var(--font-accent);
+          font-size: 10px;
+        }
+      }
+    }
+
+    #{selector.append(&, "-number-of-guests, -date-of-visit, -time-of-visit")} {
+      border-bottom: var(--border-main);
+    }
+    &-btn {
+      @at-root #{selector.unify(&, "button")} {
+        width: 50%;
+        padding: 7px 12px;
+        font-size: 16px;
+        white-space: nowrap;
+        @include bp-up(md) {
+          width: 30%;
         }
       }
     }

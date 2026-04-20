@@ -35,7 +35,6 @@ button {
   cursor: pointer;
 }
 
-
 body,
 :where(ul, ol):where([class]),
 p,
@@ -56,16 +55,32 @@ button {
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
-img, video {
-    max-width: 100%;
-    display: block;
-    height: auto;
+img,
+video {
+  max-width: 100%;
+  display: block;
+  height: auto;
 }
 
 :where(address):where([class]) {
   font-style: normal;
+}
+
+input[type="date"],
+input[type="time"],
+select {
+  height: 37px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-family: var(--font-accent);
+}
+
+input:focus {
+  outline: 5px groove var(--color-bg-gold);
+  border-radius: 5px;
 }
