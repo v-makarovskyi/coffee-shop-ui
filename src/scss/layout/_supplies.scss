@@ -38,7 +38,7 @@
 
   @include bp-up(sm) {
     @at-root #{selector.nest(&, ".supplies__item")} {
-      &:not(:last-child) {
+      &:not(.supplies__item--five) {
         border-right: var(--border-main);
       }
     }
@@ -134,8 +134,8 @@
     letter-spacing: -4px;
 
     @include bp-up(lg) {
-      width: 100%;
-      height: 100%;
+      width: auto;
+
       border-radius: initial;
 
       @at-root #{selector.nest(&, img)} {
@@ -180,22 +180,6 @@
     @include bp-up(xxl) {
       width: 100%;
     }
-
-    /* @include bp-up(lg) {
-      order: initial;
-      padding-inline: 50px;
-      padding-block: 55px;
-    }
-
-    @include bp-up(xl) {
-      padding-inline: 100px;
-      padding-block: 115px;
-    }
-
-    @include bp-up(xl) {
-      padding-inline: 163px;
-      padding-block: 158px;
-    } */
   }
 
   &__drink {

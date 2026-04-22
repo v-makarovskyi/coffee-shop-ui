@@ -1,0 +1,38 @@
+@use "../utils/" as *;
+
+.follow {
+  background-color: var(--color-text-white);
+  border-bottom: var(--border-main);
+
+  &__title {
+    padding: 20px 0 20px 20px;
+    border-bottom: var(--border-main);
+
+    @include bp-up(sm) {
+      padding: 25px 0 25px 30px;
+    }
+
+    @include bp-up(lg) {
+      padding-left: 50px;
+    }
+  }
+
+  &__grid {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: auto;
+    gap: 15px;
+
+    @include bp-up(md) {
+      padding: 40px;
+      gap: 20px;
+    }
+
+    @include bp-up(xl) {
+      padding: 50px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 30px;
+    }
+  }
+}
