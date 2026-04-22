@@ -13,6 +13,14 @@
     "i1 i1 i2 i2 i3 i3 i4 i4 i5 i5 "
     "m  m  m  m  m  m m m m m";
 
+  @include bp-up(sm) {
+    padding-bottom: 60px;
+  }
+
+  @include bp-up(lg) {
+    padding-bottom: 0;
+  }
+
   &__title {
     grid-area: t;
     padding: 20px 0 20px 20px;
@@ -28,12 +36,27 @@
     }
   }
 
+  @include bp-up(sm) {
+    @at-root #{selector.nest(&, ".supplies__item")} {
+      &:not(:last-child) {
+        border-right: var(--border-main);
+      }
+    }
+  }
+
   &__item {
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: var(--border-main);
+
+    @include bp-up(md) {
+      padding: 40px 0px;
+    }
+
+    @include bp-up(xl) {
+      padding: 80px 0px;
+    }
 
     @at-root #{selector.nest(&, "&--one")} {
       grid-area: i1;
@@ -53,18 +76,54 @@
     @at-root #{selector.nest(&, "&--five")} {
       grid-area: i5;
     }
+
+    @include bp-up(sm) {
+      @at-root #{selector.nest(&, img)} {
+        width: 80%;
+      }
+    }
+
+    @include bp-up(md) {
+      @at-root #{selector.nest(&, img)} {
+        width: 50%;
+      }
+    }
+
+    @include bp-up(xl) {
+      @at-root #{selector.nest(&, img)} {
+        width: 40%;
+      }
+    }
   }
 
   &__menu {
-    margin-top: 10px;
+    padding-top: 10px;
+    border-top: var(--border-main);
     grid-area: m;
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 10px;
+
+    @include bp-up(sm) {
+      padding-top: 20px;
+      row-gap: 30px;
+    }
+
+    @include bp-up(md) {
+      padding-top: 30px;
+      row-gap: 60px;
+    }
+
+    @include bp-up(lg) {
+      flex-direction: row;
+      padding-top: 0;
+      column-gap: 60px;
+    }
   }
 
   &__img-container {
+    max-width: 960px;
     position: relative;
     width: 90%;
     border-radius: 15% 0;
@@ -73,6 +132,18 @@
     color: var(--color-text-gold);
     @include font-style(36, 110, 1920, 400, 146%);
     letter-spacing: -4px;
+
+    @include bp-up(lg) {
+      width: 100%;
+      height: 100%;
+      border-radius: initial;
+
+      @at-root #{selector.nest(&, img)} {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
 
     &::after {
       content: "Our Cofee";
@@ -85,35 +156,94 @@
   }
 
   &__drinks {
+    max-width: 614px;
     order: 1;
     display: flex;
     flex-direction: column;
     row-gap: 16px;
+
+    @include bp-up(sm) {
+      width: 65%;
+    }
+
+    @include bp-up(md) {
+      row-gap: 27px;
+    }
+
+    @include bp-up(lg) {
+      width: 50%;
+      margin: auto;
+      order: initial;
+      padding: 15px 0px 15px 50px;
+    }
+
+    @include bp-up(xxl) {
+      width: 100%;
+    }
+
+    /* @include bp-up(lg) {
+      order: initial;
+      padding-inline: 50px;
+      padding-block: 55px;
+    }
+
+    @include bp-up(xl) {
+      padding-inline: 100px;
+      padding-block: 115px;
+    }
+
+    @include bp-up(xl) {
+      padding-inline: 163px;
+      padding-block: 158px;
+    } */
   }
 
   &__drink {
     display: flex;
-    justify-content: space-between;
     align-items: first baseline;
+    justify-content: space-between;
     column-gap: 16px;
 
     &-title {
       font-size: 16px;
       letter-spacing: 0.8px;
       margin-bottom: 2px;
+
+      @include bp-up(sm) {
+        font-size: 18px;
+      }
+      @include bp-up(md) {
+        font-size: 20px;
+      }
     }
 
     &-description {
       font-family: var(--font-accent);
       font-size: 12px;
       line-height: 130%;
+
+      @include bp-up(sm) {
+        font-size: 14px;
+      }
+
+      @include bp-up(md) {
+        font-size: 18px;
+      }
     }
 
     &-price {
       font-family: var(--font-accent);
       font-size: 14px;
       line-height: 130%;
-      letter-spacing: .72px;
+      letter-spacing: 0.72px;
+
+      @include bp-up(sm) {
+        font-size: 16px;
+      }
+
+      @include bp-up(sm) {
+        font-size: 18px;
+      }
     }
   }
 }
