@@ -1,26 +1,51 @@
 @use "sass:selector";
+@use "../utils/" as *;
 
 .footer {
   font-family: var(--font-accent);
   font-size: 14px;
   line-height: 175%;
+
+  @include bp-up(sm) {
+    font-size: 16px;
+  }
+
+  @include bp-up(lg) {
+    font-size: 18px;
+  }
   &__wrapper {
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 30px;
+
+    @include bp-up(lg) {
+      padding: 40px;
+      grid-template-columns: 46.35% 1fr 1fr;
+    }
   }
 
   &__contacts {
     grid-column: 1/-1;
+    @include bp-up(lg) {
+      grid-column: 1;
+    }
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    column-gap: 40px;
 
     &-title {
       margin-bottom: 7px;
       font-family: var(--font-main);
       font-size: 20px;
+
+      @include bp-up(sm) {
+        font-size: 24px;
+      }
+
+      @include bp-up(md) {
+        font-size: 30px;
+      }
     }
 
     & address {
@@ -36,6 +61,10 @@
     justify-self: center;
     display: flex;
     flex-direction: column;
+
+    @include bp-up(xl) {
+      justify-self: initial;
+    }
 
     & > *::after {
       content: "";

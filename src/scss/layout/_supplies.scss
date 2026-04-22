@@ -134,7 +134,7 @@
     letter-spacing: -4px;
 
     @include bp-up(lg) {
-      width: auto;
+      width: 100%;
 
       border-radius: initial;
 
