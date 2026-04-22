@@ -1,0 +1,119 @@
+@use "sass:selector";
+@use "../utils/" as *;
+
+.supplies {
+  padding-bottom: 40px;
+  border-bottom: var(--border-main);
+  background-color: var(--color-text-white);
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-auto-rows: auto;
+  grid-template-areas:
+    "t  t  t  t  t  t t t t t"
+    "i1 i1 i2 i2 i3 i3 i4 i4 i5 i5 "
+    "m  m  m  m  m  m m m m m";
+
+  &__title {
+    grid-area: t;
+    padding: 20px 0 20px 20px;
+    grid-column: 1 / -1;
+    border-bottom: var(--border-main);
+
+    @include bp-up(sm) {
+      padding: 25px 0 25px 30px;
+    }
+
+    @include bp-up(lg) {
+      padding-left: 50px;
+    }
+  }
+
+  &__item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: var(--border-main);
+
+    @at-root #{selector.nest(&, "&--one")} {
+      grid-area: i1;
+    }
+    @at-root #{selector.nest(&, "&--two")} {
+      grid-area: i2;
+    }
+
+    @at-root #{selector.nest(&, "&--three")} {
+      grid-area: i3;
+    }
+
+    @at-root #{selector.nest(&, "&--four")} {
+      grid-area: i4;
+    }
+
+    @at-root #{selector.nest(&, "&--five")} {
+      grid-area: i5;
+    }
+  }
+
+  &__menu {
+    margin-top: 10px;
+    grid-area: m;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+
+  &__img-container {
+    position: relative;
+    width: 90%;
+    border-radius: 15% 0;
+    overflow: hidden;
+    font-family: var(--font-title-only);
+    color: var(--color-text-gold);
+    @include font-style(36, 110, 1920, 400, 146%);
+    letter-spacing: -4px;
+
+    &::after {
+      content: "Our Cofee";
+      max-width: 403px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+    }
+  }
+
+  &__drinks {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  &__drink {
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+    column-gap: 16px;
+
+    &-title {
+      font-size: 16px;
+      letter-spacing: 0.8px;
+      margin-bottom: 2px;
+    }
+
+    &-description {
+      font-family: var(--font-accent);
+      font-size: 12px;
+      line-height: 130%;
+    }
+
+    &-price {
+      font-family: var(--font-accent);
+      font-size: 14px;
+      line-height: 130%;
+      letter-spacing: .72px;
+    }
+  }
+}

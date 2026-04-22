@@ -1,10 +1,11 @@
 @use "sass:meta";
-@use './typography' as *;
+@use './typography' as t;
 @use "./colors" as *;
 
 :root {
-    --font-main: #{$font-main};
-    --font-accent: #{$font-accent};
+    --font-main: #{t.$font-main};
+    --font-accent: #{t.$font-accent};
+    --font-title-only: #{t.$font-title-only};
 
     @each $name, $shades in $colors {
         @each $shade, $value in $shades {

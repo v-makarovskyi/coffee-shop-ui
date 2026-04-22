@@ -15,6 +15,13 @@ $font-families: (
     display: swap,
     path: "../../fonts/Anton-Regular.woff2",
   ),
+  "Mansalva": (
+    family: "Mansalva",
+    weight: 400,
+    style: normal,
+    display: swap,
+    path: "../../fonts/Mansalva-Regular.woff2"
+  )
 );
 
 @each $name, $data in $font-families {
@@ -29,3 +36,4 @@ $font-families: (
 
 $font-main: "Anton", sans-serif;
 $font-accent: "Space Mono", monospace;
+$font-title-only: "Mansalva", sans-serif;

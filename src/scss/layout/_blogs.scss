@@ -55,6 +55,7 @@
   &__list {
     @include bp-up(lg) {
         flex: 1 1 60%;
+        border-left: var(--border-main);
     }
 
     @include bp-up(xxl) {
