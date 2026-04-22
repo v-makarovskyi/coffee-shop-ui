@@ -1,0 +1,52 @@
+@use "sass:selector";
+
+.footer {
+  font-family: var(--font-accent);
+  font-size: 14px;
+  line-height: 175%;
+  &__wrapper {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+  }
+
+  &__contacts {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-title {
+      margin-bottom: 7px;
+      font-family: var(--font-main);
+      font-size: 20px;
+    }
+
+    & address {
+      font-style: normal;
+    }
+  }
+
+  &__list {
+    & > * {
+      position: relative;
+    }
+
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+
+    & > *::after {
+      content: "";
+      position: absolute;
+      background: border-box var(--color-text-white)
+        url("../../images/icons/underline.svg") center/cover no-repeat;
+
+      bottom: 0;
+      left: 0;
+      width: 57px;
+      height: 5px;
+    }
+  }
+}
