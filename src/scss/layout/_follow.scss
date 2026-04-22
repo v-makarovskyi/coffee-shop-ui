@@ -35,4 +35,10 @@
       gap: 30px;
     }
   }
+
+  &__img-container {
+    & > img {
+        width: 100%;
+    }
+  }
 }
