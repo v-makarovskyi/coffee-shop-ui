@@ -65,6 +65,11 @@
       @include bp-up(md) {
         width: auto;
       }
+
+      @include bp-up(lg) {
+        width: 50%;
+        flex-grow: 1;
+      }
     }
 
     &-info {
